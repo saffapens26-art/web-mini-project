@@ -207,6 +207,8 @@ h2 {
 /* ===== Pita bintang berjalan ===== */
 .marquee-banner {
   grid-column: 1 / -1;
+  justify-self: stretch;   
+  min-width: 0;            
   overflow: hidden;
   white-space: nowrap;
   background: var(--band);
@@ -434,7 +436,7 @@ h2 {
 /* ===== Responsif & aksesibilitas ===== */
 @media (max-width: 800px) {
   #beranda {
-    grid-template-columns: 1fr;
+    grid-template-columns: 0,1fr;
     justify-items: center;
   }
 
