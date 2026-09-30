@@ -1,0 +1,458 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Pinyon+Script&family=Poppins:wght@400;500&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+
+/* ===== Variabel & reset ===== */
+:root {
+  --stripe-a: #b6cfe0;
+  --stripe-b: #dde5ec;
+  --paper: #fff8ef;
+  --plum: #3a1a26;
+  --pink: #f8d9e8;
+  --band: #e9a8c3;
+  --blue: #b6cfe0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--plum);
+  background: var(--paper);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2 {
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(44px, 6vw, 72px);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section {
+  padding: 80px clamp(20px, 8vw, 120px);
+  scroll-margin-top: 70px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--plum);
+  outline-offset: 3px;
+}
+
+/* ===== Header & navigasi ===== */
+#main-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px clamp(16px, 5vw, 60px);
+  background: var(--paper);
+}
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nav-link {
+  padding: 6px 16px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--plum);
+  background: var(--pink);
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background: var(--plum);
+  color: var(--paper);
+}
+
+/* ===== Beranda ===== */
+#beranda {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  column-gap: clamp(24px, 6vw, 90px);
+  padding: 60px 0 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--stripe-a) 0 28px,
+    var(--stripe-b) 28px 56px
+  );
+}
+
+#beranda .hero-container,
+#beranda .hero-content {
+  padding-bottom: 60px;
+}
+
+.polaroid-card {
+    padding: 12px 12px 12px 34px;
+    background:
+    radial-gradient(circle at 20px 26%, var(--plum) 0 7px, transparent 8px),
+    radial-gradient(circle at 20px 66%, var(--plum) 0 7px, transparent 8px),
+    var(--paper);
+  transform: none !important; /* Batalkan pergeseran translateX di HP */
+    margin: 0 auto !important;  /* Bikin posisi bingkai otomatis pas di tengah HP */
+    width: 85% !important;      /* Ukuran bingkai menyesuaikan lebar layar HP */
+    max-width: 280px;
+    min-width: 260px;
+}
+
+.hero-container,
+  .hero-stripe {
+    flex-direction: column;     
+    justify-content: center;
+    padding: 20px 10px;
+    overflow: hidden;
+  }
+
+.polaroid-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #a9a9a9;
+  font-size: 14px;
+}
+
+/* klip binder */
+.polaroid-card::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  width: 40px;
+  height: 46px;
+  background: #4a4a4a;
+  border-radius: 3px;
+}
+
+.polaroid-card::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #c9c2bd;
+  border-radius: 50%;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 6vw, 70px);
+  transform: none
+}
+
+.welcome-text h1 {
+  font-size: clamp(64px, 11vw, 300px);
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 7px 8px 7px 22px;
+  background: var(--pink);
+  border: 2px solid var(--plum);
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.badge-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--plum);
+  color: var(--pink);
+  font-size: 18px;
+}
+
+/* ===== Pita bintang berjalan ===== */
+.marquee-banner {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--band);
+  border-bottom: 14px solid var(--plum);
+  padding: 10px 0;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: slide 25s linear infinite;
+}
+
+.marquee-content span {
+  flex-shrink: 0;
+  padding-right: 0.5em;
+  font-size: 28px;
+  letter-spacing: 0.5em;
+  color: var(--plum);
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Tentang ===== */
+#tentang {
+  background: var(--plum);
+  color: var(--paper);
+}
+
+.about-text {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-text p {
+  font-size: 15px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* ===== Pengalaman (kartu gantung) ===== */
+#pengalaman {
+  background: var(--paper);
+}
+
+.container-gantungan {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px clamp(20px, 4vw, 50px);
+  padding-top: 50px;
+}
+
+.kartu {
+  position: relative;
+  width: 260px;
+  padding: 26px 22px;
+  border: 2px solid var(--plum);
+  text-align: center;
+  transform-origin: top center;
+  transition: transform 0.3s;
+}
+
+.kartu:nth-child(1) { background: var(--pink); }
+.kartu:nth-child(2) { background: var(--blue); }
+.kartu:nth-child(3) { background: var(--band); }
+
+.kartu:hover {
+  transform: rotate(-2deg);
+}
+
+.kartu h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.kartu p {
+  font-size: 13px;
+}
+
+/* tali & paku gantungan */
+.gantungan::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 2px;
+  height: 44px;
+  margin-left: -1px;
+  background: var(--plum);
+}
+
+.gantungan::after {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 40px);
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--plum);
+}
+
+/* ===== Hobi (kartu pos) ===== */
+#hobi {
+  background-color: var(--band);
+  background-image: radial-gradient(var(--paper) 9px, transparent 10px);
+  background-size: 60px 60px;
+}
+
+.container-postcard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.kartu-postcard {
+  width: min(340px, 100%);
+  padding: 24px 26px 30px;
+  background: var(--paper);
+  border: 2px dashed var(--plum);
+}
+
+.header-postcard {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.stempel {
+  padding: 4px 10px;
+  border: 2px solid var(--plum);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  transform: rotate(4deg);
+}
+
+.kartu-postcard h3 {
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.kartu-postcard p {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.kartu-postcard ul {
+  padding-left: 18px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+/* ===== Kontak ===== */
+#kontak {
+  background: var(--pink);
+}
+
+.form-kontak {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--plum);
+  border-radius: 14px;
+  background: var(--paper);
+  font: inherit;
+  font-size: 14px;
+  color: var(--plum);
+  resize: vertical;
+}
+
+.btn {
+  align-self: flex-start;
+  padding: 12px 32px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--plum);
+  color: var(--paper);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--band);
+  color: var(--plum);
+}
+
+/* ===== Footer ===== */
+#footer-sun {
+  padding: 24px 20px;
+  background: var(--plum);
+  color: var(--paper);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ===== Responsif & aksesibilitas ===== */
+@media (max-width: 800px) {
+  #beranda {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .polaroid-card {
+    width: min(260px, 70vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-content {
+    animation: none;
+  }
+
+  .kartu {
+    transition: none;
+  }
+}
